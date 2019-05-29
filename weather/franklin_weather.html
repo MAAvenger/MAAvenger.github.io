@@ -5,20 +5,21 @@
   <title>Franklin Weather Project</title>
   <meta name="description" content="Weather content delivery for desktop and mobile">
   <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="style-sheet/style.css" media="screen">
  </head>
  <body>
      <header>
          <h1>
-            <img src="weather-site-images/logo.jpg" alt="Site logo" height="48" width="48">
+            <img src="weather-site-images/logo.jpg" alt="Site logo" id="sitelogo">
             The Weather Site 
          </h1>
      </header>
      <nav>
-         <ul>
-             <li><a href="https://maavenger.github.io/" title="Go to the Weather Site home page">Current</a></li>
-             <li><a href="https://maavenger.github.io/weather/franklin_weather.html" title="Go to Franklin, Idaho webpage">Franklin</a></li>
-             <li><a href="https://maavenger.github.io/weather/greenville_weather.html" title="Go to Greenville, Idaho webpage">Greenville</a></li>
-             <li><a href="#" title="search the website">Search</a></li>
+         <ul id="nav_bar">
+             <li class="navlink"><a href="https://maavenger.github.io/" title="Go to the Weather Site home page">Current</a></li>
+             <li class="navlink"><a href="https://maavenger.github.io/weather/franklin_weather.html" title="Go to Franklin, Idaho webpage">Franklin</a></li>
+             <li class="navlink"><a href="https://maavenger.github.io/weather/greenville_weather.html" title="Go to Greenville, Idaho webpage">Greenville</a></li>
+             <li class="navlink"><a href="#" title="search the website">Search</a></li>
          </ul>
      </nav>
      <main>
@@ -28,54 +29,54 @@
         <p>
             <b>Zip</b>: 83237 | <b>Elevation</b>: 1514.246 m | <b>Location</b>: 42.07&#176; N, 111.79&#176; W
         </p>
-        <section>
-            <h2>
+        <section id="temperature_block" class="tile">
+            <h3>
                 Temperature
-            </h2>
-            <p>
-                <ul>
-                    <li>
-                        <b>Current Temperature</b>: 40&#176; F
-                    </li>
-                    <li>
-                        <b>High</b>: 64&#176; F
-                    </li>
-                    <li>
-                        <b>Low</b>: 41&#176; F
-                    </li>
-                </ul>
-            </p>
+            </h3>
+            <ul id="temp_list">
+                <li id="current_temp">
+                    40&#176; F
+                </li>
+                <li id="max_temp">
+                    64&#176; F
+                </li>
+                <li id="min_temp">
+                    41&#176; F
+                </li>
+                <li>
+                    Feels Like 25&#176; F
+                </li>
+            </ul>
         </section>
-        <section>
-            <h2>
+        <section id="wind_block" class="tile">
+            <h3>
                 Wind
-            </h2>
-            <p>
-                <ul>
-                    <li>
-                        <b>Wind Speed</b>: 5 mph
-                    </li>
-                    <li>
-                        <b>Direction</b>: SW
-                    </li>
-                    <li>
-                        <b>Gusts</b>: 10-12 mph
-                    </li>
-                </ul>
-            </p>
+            </h3>
+            <img src="weather-site-images/wind-pointer.png" alt="wind direction">
+            <ul>
+                <li>
+                    <b>Wind Speed</b>: 5 mph
+                </li>
+                <li>
+                    <b>Direction</b>: SW
+                </li>
+                <li>
+                    <b>Gusts</b>: 10-12 mph
+                </li>
+            </ul>
         </section>
-        <section>
-            <h2>Rain</h2>
+        <section id="weather_block" class="tile">
+            <h3>Rain</h3>
             <p>
                 <b>Precipitation</b>: 0
                 <br>
                 <img src="weather-site-images/rain.jpg" alt="rain" height="256" width="256">
             </p>
         </section>
-        <aside>
-            <h2>
+        <aside id="hour_block" class="tile">
+            <h3>
                 Hourly Forecast
-            </h2>
+            </h3>
             <p>
                 10am: 41&#176; F |11am: 41&#176; F |12pm: 41&#176; F |1pm: 41&#176; F 
                 |2pm: 41&#176; F |3pm: 41&#176; F |4pm: 42&#176; F |5pm: 44&#176; F |6pm: 44&#176; F |7pm: 46&#176; F |8pm: 49&#176; F |9pm: 51&#176; F |10pm: 55&#176; F |
