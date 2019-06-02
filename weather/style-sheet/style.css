@@ -21,6 +21,7 @@
 
 
 /* 2. General */
+
 body{
     font-family: Helvetica, sans-serif;
 }
@@ -51,7 +52,7 @@ footer{
 .tile{
     border-radius: 25px;
     border: 2px solid rgb(0, 0, 0);
-    padding: 20px;
+    padding: 10%;
     background-color: rgb(219, 219, 219);
     text-align: center;
    
@@ -80,4 +81,16 @@ footer{
 li a{
     color: white;
     padding: 14px 16px
+}
+@media screen and (min-width: 600px){
+    div{
+        display:flex;
+        flex-direction:row;
+    }
+}
+/* Mobile*/
+nav{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
