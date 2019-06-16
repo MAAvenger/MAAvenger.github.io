@@ -29,7 +29,7 @@
         <p>
             <b>Zip</b>: 83237 | <b>Elevation</b>: <span id=elevation>1514.246</span> m | <b>Location</b>: 42.07&#176; N, 111.79&#176; W
         </p>
-        <div>
+        <div id="curWeather">
         <section id="temperature_block" class="tile">
             <h3>
                 Temperature
@@ -61,7 +61,7 @@
                     <b>Wind Speed</b>: <span id="wSpeed">5</span> mph
                 </li>
                 <li>
-                    <b>Direction</b>: SW
+                    <b>Direction</b>: <span id="direction">NW</span>
                 </li>
                 <li>
                     <b>Gusts</b>: 10-12 mph
@@ -69,15 +69,17 @@
             </ul>
         </section>
         <section id="weather_block" class="tile">
-            <h3>Rain</h3>
+            <h3 id="condition_status">Rain</h3>
             <p>
                 <b>Precipitation</b>: 0
                 <br>
+                <div id="condition_image">
                 <img src="weather-site-images/rain.jpg" alt="rain" height="256" width="256">
+                </div>
             </p>
         </section>
         </div>
-        <aside id="hour_block" class="tile">
+        <section id="hour_block" class="tile">
             <h3>
                 Hourly Forecast
             </h3>
@@ -85,7 +87,7 @@
                 10am: 41&#176; F |11am: 41&#176; F |12pm: 41&#176; F |1pm: 41&#176; F 
                 |2pm: 41&#176; F |3pm: 41&#176; F |4pm: 42&#176; F |5pm: 44&#176; F |6pm: 44&#176; F |7pm: 46&#176; F |8pm: 49&#176; F |9pm: 51&#176; F |10pm: 55&#176; F |
             </p>
-        </aside>
+        </section>
      </main>
      <footer>
          &copy;2019, The Weather Site 

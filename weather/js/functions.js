@@ -21,9 +21,10 @@ function buildWC(speed, temp){
 buildWC(speed,temp)
 
 // Wind Dial Function
+const direction = document.getElementById("direction").innerHTML;
+const dial = document.getElementById("dial");
 function windDial(direction){
     // Get the container
-    const dial = document.getElementById("dial");
     console.log(direction);
     // Determine the dial class
     switch (direction){
@@ -65,8 +66,35 @@ function windDial(direction){
       break;
     }
    }
-   windDial(direction);
+windDial(direction);
+const conditionStatus = document.getElementById("condition_status").innerHTML;
+function getCondition(conditonStatus){
+    switch (conditionStatus){
+        case "Rain":
+        case "Rainy":
+         return "rain";
+        case "Snow":
+        case "Snowy":
+         return "snow";
+        case "Clear":
+        case "Nice":
+         return "clear";
+        case "Fog":
+        case "Foggy":
+         return "fog";
+        case "Clouds":
+        case "Cloudy":
+         return "clouds";
+    }
+}
+const condition = getCondition(conditionStatus);
+console.log(condition);
+function changeSummaryImage(){
 
+}
+function convertMeters(){
+
+}
 let meters = 1427;
 function metersToFeet(meters){
     var m = meters *.314987;

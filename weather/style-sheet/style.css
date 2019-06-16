@@ -85,6 +85,51 @@ footer{
     z-index: 100;
     margin: -.6em auto 0;
    }
+/*Wind pointer direction and degree translation*/
+.n{
+   transform: rotate(0deg);
+}
+.ne{
+   transform: rotate(45deg);
+}
+.e{
+   transform: rotate(90deg);
+}
+.se{
+   transform: rotate(135deg);
+}
+.s{
+   transform: rotate(180deg);
+}
+.sw{
+   transform: rotate(225deg);
+}
+.w{
+   transform: rotate(270deg);
+}
+.nw{
+   transform: rotate(315deg);
+}
+#curWeather {
+    background-size: cover;
+   }
+   
+/* Background pictures for summary */
+.clear {
+    background-image: url("/weather/images/clear_250.jpg");
+}
+.rain {
+    background-image: url("/weather/images/rain_250.jpg");
+}
+.clouds {
+    background-image: url("/weather/images/clouds_250.jpg");
+}
+.fog {
+    background-image: url("/weather/images/fog_250.jpg");
+}
+.snow {
+    background-image: url("/weather/images/snow_250.jpg");
+}
 li a{
     color: white;
     padding: 14px 16px
