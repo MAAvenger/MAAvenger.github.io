@@ -1,7 +1,6 @@
 //Weather Site Javascript Functions
 console.log ("my js is being read")
 
-
 // let temp = 31
 // let speed = 5
 let speed = document.getElementById('wSpeed').innerHTML;
@@ -69,6 +68,7 @@ function windDial(direction){
 windDial(direction);
 const conditionStatus = document.getElementById("condition_status").innerHTML;
 function getCondition(conditonStatus){
+    //checks for keywords in order to output correct condition value
     switch (conditionStatus){
         case "Rain":
         case "Rainy":
@@ -89,17 +89,36 @@ function getCondition(conditonStatus){
 }
 const condition = getCondition(conditionStatus);
 console.log(condition);
-function changeSummaryImage(){
-
+function changeSummaryImage(condition){
+    const curWeather = document.getElementById("condition_image");
+    switch (condition){
+        case "rain":
+         curWeather.setAttribute("class","rain");
+         break;
+        case "snow":
+         curWeather.setAttribute("class","snow");
+         break;
+        case "clear":
+         curWeather.setAttribute("class","clear");
+         break;
+        case "fog":
+         curWeather.setAttribute("class","fog");
+         break;
+        case "clouds":
+         curWeather.setAttribute("class","clouds");
+         break;
+    }
 }
-function convertMeters(){
-
+changeSummaryImage(condition);
+// Converts feet to meters
+let meters = document.getElementById("elevation").innerHTML;
+console.log(meters);
+function convertMeters(meters){
+    var ft = Math.round(meters * 3.28084);
+    return ft;
 }
-let meters = 1427;
-function metersToFeet(meters){
-    var m = meters *.314987;
-    return m;
-}
-let feet = metersToFeet(meters);
-let elevation = document.getElementById("elevation");
-elevation.innerhtml = feet;
+let feet = convertMeters(meters);
+console.log(feet);
+//relaces html elevation data with value from covertMeters and replaces "m" with "ft"
+document.getElementById("elevation").innerHTML= feet;
+document.getElementById("elevation_notation").innerHTML= "ft";

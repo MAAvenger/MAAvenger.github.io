@@ -55,6 +55,7 @@ footer{
     padding: 10%;
     background-color: rgb(219, 219, 219);
     text-align: center;
+    opacity: 0.5;
    
 }
 #temp_list, #maxmin_temp{
@@ -116,19 +117,34 @@ footer{
    
 /* Background pictures for summary */
 .clear {
-    background-image: url("/weather/images/clear_250.jpg");
+    background-image: url("clear_250.jpg");
+    background-size: cover;
+    min-width: 200px;
+    min-height: 200px;
 }
 .rain {
-    background-image: url("/weather/images/rain_250.jpg");
+    background-image: url("rain_250.jpg");
+    background-size: cover;
+    min-width: 200px;
+    min-height: 200px;
 }
 .clouds {
-    background-image: url("/weather/images/clouds_250.jpg");
+    background-image: url("clouds_250.jpg");
+    background-size: cover;
+    min-width: 200px;
+    min-height: 200px;
 }
 .fog {
-    background-image: url("/weather/images/fog_250.jpg");
+    background-image: url("fog_250.jpg");
+    background-size: cover;
+    min-width: 200px;
+    min-height: 200px;
 }
 .snow {
-    background-image: url("/weather/images/snow_250.jpg");
+    background-image: url("snow_250.jpg");
+    background-size: cover;
+    min-width: 200px;
+    min-height: 200px;
 }
 li a{
     color: white;
