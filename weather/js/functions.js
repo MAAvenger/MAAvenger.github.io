@@ -1,8 +1,6 @@
 //Weather Site Javascript Functions
-console.log ("my js is being read")
-
-// let temp = 31
-// let speed = 5
+console.log ("my js is being read");
+////////////////////////////////////////////////////////////////////////////////////
 let speed = document.getElementById('wSpeed').innerHTML;
 let temp = document.getElementById('temp').innerHTML;
 //Wind Chill Function
@@ -18,7 +16,7 @@ function buildWC(speed, temp){
     feelTemp.innerHTML = wc;
 }
 buildWC(speed,temp)
-
+////////////////////////////////////////////////////////////////////////////////////
 // Wind Dial Function
 const direction = document.getElementById("direction").innerHTML;
 const dial = document.getElementById("dial");
@@ -66,6 +64,7 @@ function windDial(direction){
     }
    }
 windDial(direction);
+////////////////////////////////////////////////////////////////////////////////////
 const conditionStatus = document.getElementById("condition_status").innerHTML;
 function getCondition(conditonStatus){
     //checks for keywords in order to output correct condition value
@@ -89,6 +88,7 @@ function getCondition(conditonStatus){
 }
 const condition = getCondition(conditionStatus);
 console.log(condition);
+////////////////////////////////////////////////////////////////////////////////////
 function changeSummaryImage(condition){
     const curWeather = document.getElementById("condition_image");
     switch (condition){
@@ -110,6 +110,7 @@ function changeSummaryImage(condition){
     }
 }
 changeSummaryImage(condition);
+///////////////////////////////////////////////////////////////////////////////////
 // Converts feet to meters
 let meters = document.getElementById("elevation").innerHTML;
 console.log(meters);
@@ -122,3 +123,19 @@ console.log(feet);
 //relaces html elevation data with value from covertMeters and replaces "m" with "ft"
 document.getElementById("elevation").innerHTML= feet;
 document.getElementById("elevation_notation").innerHTML= "ft";
+////////////////////////////////////////////////////////////////////////////////////
+function format_time(hour){
+    if(hour > 23){ 
+        hour -= 24; 
+       } 
+       let amPM = (hour > 11) ? "pm" : "am"; 
+       if(hour > 12) { 
+        hour -= 12; 
+       } 
+       if(hour == 0) { 
+        hour = "12"; 
+       } 
+       return hour + amPM;
+      
+
+}
