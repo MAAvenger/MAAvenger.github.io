@@ -2,88 +2,99 @@
 <html lang="en-us">
  <head>
   <meta charset="UTF-8">
-  <title>Greenville Weather Project</title>
+  <title id="page-title"> | The Weather Site</title>
   <meta name="description" content="Weather content delivery for desktop and mobile">
   <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="style-sheet/style.css" media="screen">
  </head>
  <body>
      <header>
          <h1>
-            <img src="weather-site-images/logo.jpg" alt="Site logo" height="48" width="48">
+            <img src="weather-site-images/logo.jpg" alt="Site logo" id="sitelogo">
             The Weather Site 
          </h1>
      </header>
-     <nav>
-         <ul>
-             <li><a href="https://maavenger.github.io/" title="Go to the Weather Site home page">Current</a></li>
-             <li><a href="https://maavenger.github.io/weather/franklin_weather.html" title="Go to Franklin, Idaho webpage">Franklin</a></li>
-             <li><a href="https://maavenger.github.io/weather/greenville_weather.html" title="Go to Greenville, Idaho webpage">Greenville</a></li>
-             <li><a href="#" title="search the website">Search</a></li>
+     <nav id="page-nav">
+         <ul id="nav_bar">
+             <li class="navlink"><a href="https://maavenger.github.io/" title="Go to the Weather Site home page">Current</a></li>
+             <li class="navlink"><a href="https://maavenger.github.io/weather/franklin_weather.html" title="Go to Franklin, Idaho webpage">Franklin</a></li>
+             <li class="navlink"><a href="https://maavenger.github.io/weather/greenville_weather.html" title="Go to Greenville, Idaho webpage">Greenville</a></li>
+             <li class="navlink"><a href="#" title="search the website">Search</a></li>
          </ul>
      </nav>
-     <main>
-        <h2>
-            Greenville, South Carolina
+     <section id="status">Weather information is being retreived</section>
+
+
+     <main id="main-content" class="hide">
+        <h2 id="contentHeading">
+            Franklin, Idaho
         </h2>
         <p>
-            <b>Zip</b>: 29601 | <b>Elevation</b>: 294.437 m | <b>Location</b>: -82.4&#176; S, 34.85&#176; W
+            <b>Zip</b>: <span id = "zip">83237</span> | <b>Elevation</b>: <span id=elevation>1514.246</span> <span id="elevation_notation">m</span> | <b>Location</b>:
+             <span id="longitude">42.07</span>&#176; N, <span id="latitude">111.79</span>&#176; W
         </p>
-        <section>
-            <h2>
+        <div id="curWeather" class="rain">
+        <section id="temperature_block" class="tile">
+            <h3>
                 Temperature
-            </h2>
-            <p>
-                <ul>
-                    <li>
-                        <b>Current Temperature</b>: 55&#176; F
-                    </li>
-                    <li>
-                        <b>High</b>: 72&#176; F
-                    </li>
-                    <li>
-                        <b>Low</b>: 51&#176; F
-                    </li>
-                </ul>
-            </p>
+            </h3>
+            <ul id="temp_list">
+                <li id="current_temp">
+                    <span id="temp">40</span>&#176; F
+                </li>
+                <li id="max_temp">
+                    <span id="maxTemp">64</span>&#176; F
+                </li>
+                <li id="min_temp">
+                    <span id="minTemp">41</span>&#176; F
+                </li>
+                <li id="feels_like">
+                    Feels Like <span id="feelTemp"></span>&#176; F
+                </li>
+            </ul>
         </section>
-        <section>
-            <h2>
+        <section id="wind_block" class="tile">
+            <h3>
                 Wind
-            </h2>
-            <p>
-                <ul>
-                    <li>
-                        <b>Wind Speed</b>: 8 mph
-                    </li>
-                    <li>
-                        <b>Direction</b>: SW
-                    </li>
-                    <li>
-                        <b>Gusts</b>: 15-17 mph
-                    </li>
-                </ul>
-            </p>
+            </h3>
+            <div id="dial" class="w">
+            <img src="weather-site-images/wind-pointer.png" alt="wind direction">
+            </div>
+            <ul>
+                <li>
+                    <b>Wind Speed</b>: <span id="wSpeed">5</span> mph
+                </li>
+                <li>
+                    <b>Direction</b>: <span id="direction">NW</span>
+                </li>
+                <li>
+                    <b>Gusts</b>: <span id="wind_gusts">10-12</span> mph
+                </li>
+            </ul>
         </section>
-        <section>
-            <h2>Thunderstorms</h2>
+        <section id="weather_block" class="tile">
+            <h3 id="condition_status">Rain</h3>
             <p>
-                <b>Precipitation</b>: 45
+                <b>Precipitation</b>: <span id = "precipitation">0</span>
                 <br>
-                <img src="weather-site-images/rain.jpg" alt="rain" height="256" width="256">
-            </p>
+                <div id="condition_image">
+                <!-- <img src="weather-site-images/rain.jpg" alt="rain" height="256" width="256"> -->
+                </div>
+            
         </section>
-        <aside>
-            <h2>
+        </div>
+        <section id="hour_block" class="tile">
+            <h3 id="hour_header">
                 Hourly Forecast
-            </h2>
-            <p>
-                10am: 55&#176; F |11am: 55&#176; F |12pm: 56&#176; F |1pm: 57&#176; F |2pm: 57&#176; F 
-                |3pm: 57&#176; F |4pm: 59&#176; F |5pm: 59&#176; F |6pm: 59&#176; F |7pm: 60&#176; F |8pm: 61&#176; F |9pm: 63&#176; F |10pm: 64&#176; F |
-            </p>
-        </aside>
+            </h3>
+            <ul id="hourly_data">
+            </ul>
+        </section>
      </main>
      <footer>
          &copy;2019, The Weather Site 
      </footer>
+     <script src="js/functions.js"></script>
+     <script src="js/localdata.js"></script>
  </body>
 </html>

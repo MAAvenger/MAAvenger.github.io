@@ -5,7 +5,7 @@ let speed = document.getElementById('wSpeed').innerHTML;
 let temp = document.getElementById('temp').innerHTML;
 //Wind Chill Function
 function buildWC(speed, temp){
-    const feelTemp = document.getElementById('feelTemp');
+    //let feelTemp = document.getElementById('feelTemp');
     //compute the windchill
     let wc = 35.74 + 0.6215 * temp - 35.75 * Math.pow(speed, 0.16) + 0.4275 * temp * Math.pow(speed, 0.16);
     wc = Math.floor(wc);
@@ -13,13 +13,14 @@ function buildWC(speed, temp){
     wc = (wc > temp)?temp:wc;
     // Display the windchill
     console.log(wc);
-    feelTemp.innerHTML = wc;
+    //feelTemp.innerHTML = wc;
+    return wc;
 }
 buildWC(speed,temp)
 ////////////////////////////////////////////////////////////////////////////////////
 // Wind Dial Function
-const direction = document.getElementById("direction").innerHTML;
-const dial = document.getElementById("dial");
+let direction = document.getElementById("direction").innerHTML;
+let dial = document.getElementById("dial");
 function windDial(direction){
     // Get the container
     console.log(direction);
@@ -65,7 +66,8 @@ function windDial(direction){
    }
 windDial(direction);
 ////////////////////////////////////////////////////////////////////////////////////
-const conditionStatus = document.getElementById("condition_status").innerHTML;
+let conditionStatus = document.getElementById("condition_status").innerHTML;
+console.log(conditionStatus);
 function getCondition(conditonStatus){
     //checks for keywords in order to output correct condition value
     switch (conditionStatus){
@@ -83,14 +85,15 @@ function getCondition(conditonStatus){
          return "fog";
         case "Clouds":
         case "Cloudy":
+        case "Thunderstorms":
          return "clouds";
     }
 }
-const condition = getCondition(conditionStatus);
+let condition = getCondition(conditionStatus);
 console.log(condition);
 ////////////////////////////////////////////////////////////////////////////////////
 function changeSummaryImage(condition){
-    const curWeather = document.getElementById("condition_image");
+    let curWeather = document.getElementById("condition_image");
     switch (condition){
         case "rain":
          curWeather.setAttribute("class","rain");
@@ -124,18 +127,37 @@ console.log(feet);
 document.getElementById("elevation").innerHTML= feet;
 document.getElementById("elevation_notation").innerHTML= "ft";
 ////////////////////////////////////////////////////////////////////////////////////
+//Convert format time to 12 hour format
 function format_time(hour){
     if(hour > 23){ 
-        hour -= 24; 
-       } 
-       let amPM = (hour > 11) ? "pm" : "am"; 
-       if(hour > 12) { 
-        hour -= 12; 
-       } 
-       if(hour == 0) { 
-        hour = "12"; 
-       } 
-       return hour + amPM;
-      
-
-}
+     hour -= 24; 
+    } 
+     let amPM = (hour > 11) ? "pm" : "am"; 
+     if(hour > 12) { 
+     hour -= 12; 
+    } 
+     if(hour == 0) { 
+     hour = "12"; 
+    } 
+     return hour + amPM;
+    }
+////////////////////////////////////////////////////////////////////////////////////
+// Build the hourly temperature list
+function buildHourlyData(nextHour,hourlyTemps) {
+    // Data comes from a JavaScript object of hourly temp name - value pairs
+    // Next hour should have a value between 0-23
+    // The hourlyTemps variable holds an array of temperatures
+    // Line 8 builds a list item showing the time for the next hour 
+    // and then the first element (value in index 0) from the hourly temps array
+     let hourlyListItems = '<li class="hourDataPoints">' + format_time(nextHour) + ': ' + hourlyTemps[0] + '&deg;F | </li>';
+     // Build the remaining list items using a for loop
+     for (let i = 1, x = hourlyTemps.length; i < x; i++) {
+      hourlyListItems += '<li class="hourDataPoints">' + format_time(nextHour+i) + ': ' + hourlyTemps[i] + '&deg;F | </li>';
+     }
+     console.log('HourlyList is: ' +hourlyListItems);
+     return hourlyListItems;
+    }
+    // Get the next hour based on the current time
+let date = new Date(); 
+let nextHour = date.getHours() + 1;
+////////////////////////////////////////////////////////////////////////////////////

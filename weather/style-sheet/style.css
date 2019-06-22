@@ -55,14 +55,16 @@ footer{
     padding: 10%;
     background-color: rgb(219, 219, 219);
     text-align: center;
-    opacity: 0.5;
+    opacity: 0.75;
    
 }
 #temp_list, #maxmin_temp{
     list-style: none;
 }
 #hour_block{
-    overflow: scroll;
+    overflow: auto;
+    white-space: nowrap;
+    height: 50px;
 }
 #current_temp{
     font-size: 75px;
@@ -73,11 +75,26 @@ footer{
 #min_temp{
     color: blue;
 }
+#nav_bar{
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(0, 162, 255);
+
+}
 .navlink{
     display: inline;
     background-color: rgb(0, 162, 255);
     padding: 8px;
     
+}
+#hourly_data{
+    text-align: center;
+}
+.hourDataPoints{
+    display: inline-block;
+    padding-right: 3px;
 }
 #dial {
     height: 150px;
@@ -150,6 +167,9 @@ li a{
     color: white;
     padding: 14px 16px
 }
+.hide{
+    display: none;
+}
 /*widescreen*/
 @media screen and (min-width: 600px){
     div{
@@ -158,8 +178,12 @@ li a{
     }
 }
 /* Mobile*/
-nav{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+@media screen and (max-width: 600px){
+    nav{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        opacity:1;
+        z-index: 1
+    }
 }
