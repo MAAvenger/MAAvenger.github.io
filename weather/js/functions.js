@@ -73,6 +73,7 @@ function getCondition(conditonStatus){
     switch (conditionStatus){
         case "Rain":
         case "Rainy":
+        case "Thunderstorms":
          return "rain";
         case "Snow":
         case "Snowy":
@@ -85,10 +86,10 @@ function getCondition(conditonStatus){
          return "fog";
         case "Clouds":
         case "Cloudy":
-        case "Thunderstorms":
          return "clouds";
     }
 }
+
 let condition = getCondition(conditionStatus);
 console.log(condition);
 ////////////////////////////////////////////////////////////////////////////////////

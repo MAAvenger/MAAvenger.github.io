@@ -100,7 +100,9 @@ console.log(windSpeed);
     let condition = document.getElementById("condition_status").innerHTML;
     console.log(condition);
     console.log(getCondition(condition));
-    changeSummaryImage(condition);
+    let cond = getCondition(condition);
+    console.log(cond);
+    changeSummaryImage(cond);
     document.getElementById("precipitation").innerHTML = locPrecipitation;
 
     // Set the hourly temperature information

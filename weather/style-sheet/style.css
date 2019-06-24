@@ -64,7 +64,7 @@ footer{
 #hour_block{
     overflow: auto;
     white-space: nowrap;
-    height: 50px;
+    height: 70px;
 }
 #current_temp{
     font-size: 75px;
