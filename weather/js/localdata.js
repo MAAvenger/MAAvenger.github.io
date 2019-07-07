@@ -67,6 +67,7 @@ console.log(windSpeed);
     let gusts = g.Gusts;
     // Get the current conditions
     let locCondition = g.Summary;
+    console.log(locCondition);
     let locPrecipitation = g.Precip;
 
     // Get the hourly data 
@@ -109,12 +110,10 @@ console.log(windSpeed);
     windDial(direction);
     // Set the current conditions information
     document.getElementById("condition_status").innerHTML = locCondition;
+    console.log(document.getElementById("condition_status"))
     //use locCondition in getCondition and use output in changeSummaryImage
     let condition = document.getElementById("condition_status").innerHTML;
-    console.log(condition);
-    console.log(getCondition(condition));
-    let cond = getCondition(condition);
-    console.log(cond);
+    let cond = getCondition(locCondition);
     changeSummaryImage(cond);
     document.getElementById("precipitation").innerHTML = locPrecipitation;
 
