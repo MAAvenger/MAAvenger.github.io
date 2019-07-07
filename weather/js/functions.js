@@ -272,10 +272,8 @@ function getWeather(stationId) {
       storage.setItem("localTempC", data.properties.temperature.value); 
       storage.setItem("localPrecip", data.properties.precipitationLastHour.value); 
       storage.setItem("localCondition", data.properties.textDescription); 
-      storage.setItem("localFeelsLike", data.properties.windChill.value); 
-      storage.setItem("localWindDirection", data.properties.windDirection.value);
       storage.setItem("localWindGust", data.properties.windGust.value); 
-      storage.setItem("localWindSpeed", data.properties.windSpeed.value); 
+      storage.setItem("calcSpeed", data.properties.windSpeed.value);
   
   
   
@@ -322,8 +320,10 @@ function getMinMax(minMaxURL){
       console.log('From getMinMax function:');
       console.log(data);
       //store data
-      storage.setItem("localMinTempC", data.properties.minTemperatureLast24Hours.value); 
-      storage.setItem("localMaxTempC", data.properties.maxTemperatureLast24Hours.value); 
+      storage.setItem("localMinTempC", data.properties.periods[0].temperature); 
+      storage.setItem("localMaxTempC", data.properties.periods[1].temperature); 
+      storage.setItem("localWindDirection", data.properties.periods[0].windDirection);
+      storage.setItem("localWindSpeed", data.properties.periods[0].windSpeed); 
       
       
     })
@@ -339,15 +339,18 @@ function buildPage(){
   let direction = storage.getItem('localWindDirection');
   let conditionStatus = storage.getItem('localCondition');
   let meters = storage.getItem('localElevation');
+  let calcSpeed = storage.getItem('calcSpeed');
+  let hourlyTemps = storage.getItem("hourlyTempData");
   //function calls
-  let windChill = buildWC(speed, convertToFahrenheit(temp));
+  let windChill = buildWC((calcSpeed * 2.237), convertToFahrenheit(temp));
   windDial(direction);
   let condition = getCondition(conditionStatus);
   changeSummaryImage(condition);
   let feet = convertMeters(meters);
+  buildHourlyData(nextHour,hourlyTemps);
+
   // Task 2 - Populate location information
   //assigning variables
-  let gusts = storage.getItem('localWindGust');
   let locName = storage.getItem('locName');
   let locState = storage.getItem('locState');
   let longitude = storage.getItem('longitude'); 
@@ -356,18 +359,35 @@ function buildPage(){
   document.getElementById("elevation").innerHTML= feet;
   document.getElementById("elevation_notation").innerHTML= "ft";
   document.getElementById("contentHeading").innerHTML = locName +', '+ locState;
+  document.getElementById("page-title").innerHTML = locName +', '+ locState + ' | The Weather Site';
   document.getElementById("zip").innerHTML = "missing";
   document.getElementById('longitude').innerHTML = Math.round(longitude);
   document.getElementById('latitude').innerHTML = Math.round(latitude);
-  document.getElementById('wind_gusts').innerHTML = gusts;
+
   
 
 
   
   // Task 3 - Populate weather information
+  //assigning variables
+  let gusts = storage.getItem('localWindGust');
+  var minTemp = storage.getItem('localMinTempC');
+  var maxTemp = storage.getItem('localMaxTempC');
+  if (minTemp > maxTemp){
+    var minTemp = storage.getItem('localMaxTempC');
+    var maxTemp = storage.getItem('localMinTempC');
+  }
+  //populating elements
+
+  document.getElementById('direction').innerHTML = direction;
   document.getElementById('temp').innerHTML = Math.round(convertToFahrenheit(temp));
   document.getElementById('feelTemp').innerHTML = windChill;
   document.getElementById('wSpeed').innerHTML = speed;
+  document.getElementById('condition_status').innerHTML = conditionStatus;
+  document.getElementById('wind_gusts').innerHTML = gusts;
+  document.getElementById('minTemp').innerHTML = minTemp;
+  document.getElementById('maxTemp').innerHTML = maxTemp;
+
 
   // Task 4 - Hide status and show main
  }
