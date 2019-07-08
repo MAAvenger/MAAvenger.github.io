@@ -172,10 +172,10 @@ function buildHourlyData(nextHour,hourlyTemps) {
     // The hourlyTemps variable holds an array of temperatures
     // Line 8 builds a list item showing the time for the next hour 
     // and then the first element (value in index 0) from the hourly temps array
-     let hourlyListItems = '<li class="hourDataPoints">' + format_time(nextHour) + ': ' + hourlyTemps[0] + '&deg;F | </li>';
+     var hourlyListItems = '<li class="hourDataPoints">' + format_time(nextHour) + ': ' + hourlyTemps[0] + hourlyTemps[1] + hourlyTemps[2] + '&deg;F | </li>';
      // Build the remaining list items using a for loop
-     for (let i = 1, x = hourlyTemps.length; i < x; i++) {
-      hourlyListItems += '<li class="hourDataPoints">' + format_time(nextHour+i) + ': ' + hourlyTemps[i] + '&deg;F | </li>';
+     for (let i = 1, x = hourlyTemps.length/1.0525; i < x; i+=3) {
+      hourlyListItems += '<li class="hourDataPoints">' + format_time(nextHour+i) + ': ' + hourlyTemps[i] + hourlyTemps[i+1] + hourlyTemps[i+2] + '&deg;F | </li>';
      }
      console.log('HourlyList is: ' +hourlyListItems);
      return hourlyListItems;
@@ -296,8 +296,8 @@ function getHourly(hourlyURL) {
       console.log('From getHourly function:');
       console.log(data);
       //store hourly data
-      let i;
-      let hourlyTempData = [];
+      var i;
+      var hourlyTempData = [];
       for (i = 0; i < 13; i++){
         hourlyTempData[i] = data.properties.periods[i].temperature
       }
@@ -347,7 +347,7 @@ function buildPage(){
   let condition = getCondition(conditionStatus);
   changeSummaryImage(condition);
   let feet = convertMeters(meters);
-  buildHourlyData(nextHour,hourlyTemps);
+  
 
   // Task 2 - Populate location information
   //assigning variables
@@ -387,8 +387,9 @@ function buildPage(){
   document.getElementById('wind_gusts').innerHTML = gusts;
   document.getElementById('minTemp').innerHTML = minTemp;
   document.getElementById('maxTemp').innerHTML = maxTemp;
+  document.getElementById('hourly_data').innerHTML = buildHourlyData(nextHour,hourlyTemps);
 
-
+console.log(buildHourlyData(nextHour,hourlyTemps));
   // Task 4 - Hide status and show main
  }
  buildPage()
