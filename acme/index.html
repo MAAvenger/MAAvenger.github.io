@@ -30,17 +30,19 @@
          <!-- CONTENT PAGES -->
         <section id="product_content" class="hide">
             <h1 id="product_name"></h1>
+            <section id = "page_info">
             <img id="product_image"alt="product image">
-            <p id="content_desc">
+            <div>
+            <p id="content_desc"></p>
                 <b>Made by:</b><span id="manufacturer"></span>
                 <br>
                 <b>Reviews:</b><span id="reviews"></span>
-            </p>
-        <p>
+            
+        <p id="price_paragraph">
         Price:<span id="price"></span>
         </p>
-
-
+    </div>
+    </section>
 
 
         </section>
@@ -71,23 +73,23 @@
           <h2>Featured Recipes</h2>
         <span id="row">
             <div class="column">
-                <figure>
+                <figure class = "recipe">
                 <img src="images/recipes/bbqsand.jpg">
                     <figcaption><a href="#">Pulled Roadrunner BBQ</a></figcaption>
                 </figure>
                     <br>
-                    <figure>
+                    <figure class = "recipe">
                 <img src="images/recipes/potpie.jpg">
                     <figcaption><a href="#">Roadrunner Pot Pie</a></figcaption>
                     </figure>
             </div>
             <div class="column">
-                <figure>
+                <figure class = "recipe">
                 <img src="images/recipes/soup.jpg">
                     <figcaption><a href="#">Roadrunner Soup</a></figcaption>
                 </figure>
                     <br>
-                <figure>
+                <figure class = "recipe">
                 <img src="images/recipes/taco.jpg">
                     <figcaption><a href="#">Roadrunner Tacos</a></figcaption>
                 </figure>
@@ -97,6 +99,7 @@
     </section>
      </main>
      <footer>
+         <hr>
             &copy; 2018 ACME, All rights reserved.
             <br>
             All images used are believed to be in "Fair Use". Please notify the author if any are not and they will be removed.

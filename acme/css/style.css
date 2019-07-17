@@ -1,4 +1,36 @@
+@media only screen and (max-width: 600px) {
+  #rocketInfo{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 1.5%;
+    list-style-type: none;
+    color: #990033;
+    font-size:80%;
+  }
+  #actionbtn{
+    max-width: 75%;
+  }
+  .recipe{
+    display:flex;
+  }
 
+  #row{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  .column img {
+    margin-top: 0px;
+    vertical-align: middle;
+    max-width: 50%;
+  }
+  figure{
+    max-width: 50%;
+    max-height: 50%;
+  }
+}
 
 /* Document wide rules */
 html{
@@ -69,10 +101,13 @@ main{
 }
 
 #row{
-  display: flex;
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: auto auto;
   flex-wrap: wrap;
   padding: 0 0px;
 }
+
 .column img {
   margin-top: 0px;
 }
@@ -88,33 +123,25 @@ main{
 }
 
 figure{
+  grid-column-start: 1;
+  grid-column-end: 2;
   text-align: center;
+  padding: 0 0px;
 }
-@media only screen and (max-width: 600px) {
-  #rocketInfo{
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.5);
-    margin: 1.5%;
-    list-style-type: none;
-    color: #990033;
-    font-size:80%;
-  }
-  #actionbtn{
-    max-width: 75%;
-  }
-  .recipe{
-    display:flex;
-  }
 
-  #row{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-  }
-  .column img {
-    margin-top: 8px;
-    vertical-align: middle;
-  }
+#product_image{
+  max-width: 35%;
+  max-height: 35%;
+}
+#page_info{
+  display:flex;
+}
+hr{
+  height: 5px;
+  background-color: #de2226;
+}
+#price_paragraph{
+  color: #990033;
+  font-size: 120%;
+  font-weight: bolder;
 }

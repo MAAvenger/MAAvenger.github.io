@@ -33,12 +33,20 @@ throw new ERROR('Network response was not OK');
 console.log(data);
 let productName = a.name;
 let productPath = a.path
+let productDesc = a.description;
+let manufacturer = a.manufacturer;
+let price = a.price;
+let reviews = a.reviews;
 console.log(productName);
 
 
 
 document.getElementById('product_name').innerHTML = productName;
 document.getElementById('product_image').setAttribute('src',productPath);
+document.getElementById('content_desc').innerHTML = productDesc;
+document.getElementById('manufacturer').innerHTML = " " + manufacturer;
+document.getElementById('price').innerHTML = " $" + price;
+document.getElementById('reviews').innerHTML = " " + reviews + "/5";
 })
 .catch(function(error){
     console.log('There was a fetch problem: ', error.message);
