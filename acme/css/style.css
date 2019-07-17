@@ -1,0 +1,120 @@
+
+
+/* Document wide rules */
+html{
+  background-image: url(../images/site/background.jpg);
+  background-size: cover;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Main body */
+body{
+  background-color: white;
+  margin: 5%;
+}
+
+/* Nav Bar */
+#nav_bar{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #de2226;
+}
+.navlink{
+  float:left;
+}
+.navlink a{
+  display: block;
+  color: white;
+  text-align:center;
+  padding: 8px 10px;
+  text-decoration:none;
+}
+/* End of Nav Bar */
+
+#welcomeMessage{
+  margin: 0;
+}
+
+/* Keeps body image aligned inside of main */
+main{
+  overflow: hidden;
+}
+#bodyImg{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  width:100%;
+}
+
+.imageInfo{
+  position: relative;
+  width:100%;
+  max-height: 100%;
+  max-width: 100%;
+}
+#rocketInfo{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1.5%;
+  list-style-type: none;
+  color: #990033;
+  font-size: 120%;
+}
+#actionbtn{
+  position: center;
+}
+
+#row{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0px;
+}
+.column img {
+  margin-top: 0px;
+}
+
+#rocketReviews{
+  float:left;
+}
+#recipeBlock{
+  float:left;
+}
+.hide{
+  display: none;
+}
+
+figure{
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  #rocketInfo{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 1.5%;
+    list-style-type: none;
+    color: #990033;
+    font-size:80%;
+  }
+  #actionbtn{
+    max-width: 75%;
+  }
+  .recipe{
+    display:flex;
+  }
+
+  #row{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
+}
